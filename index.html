@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Graph Engineering Lab</title>
+    <meta
+      name="description"
+      content="Five playable lessons on graph engineering — knowledge graphs vs control graphs, provenance, and graph walk vs vector search — with an on-device WebLLM tutor."
+    />
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="top">
+      <div>
+        <p class="eyebrow">Browser lab · v0.1</p>
+        <h1>Graph Engineering Lab</h1>
+        <p class="lede">
+          A tiny company graph you can walk. Five lessons. An optional tutor that
+          runs in your browser.
+        </p>
+      </div>
+      <div class="top-meta">
+        <div>Orbit Labs · 22 nodes · 34 edges</div>
+        <div>
+          <a href="https://github.com/sai-prakash/graph-engineering-lab">source</a>
+          · no server · WebLLM optional
+        </div>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section class="lesson-col">
+        <nav class="lesson-nav" id="nav"></nav>
+        <article class="lesson-body">
+          <div class="mins" id="mins"></div>
+          <h2 id="title"></h2>
+          <div id="body"></div>
+        </article>
+      </section>
+
+      <section class="play">
+        <div class="panel">
+          <h3>Knowledge graph · Orbit Labs</h3>
+          <div class="graph-wrap">
+            <svg class="graph" id="svg" viewBox="0 0 840 740" role="img" aria-label="Orbit Labs graph"></svg>
+          </div>
+          <div class="legend" id="legend"></div>
+        </div>
+
+        <div class="panel">
+          <h3>Inspect</h3>
+          <div class="inspect" id="inspect">Click a node.</div>
+        </div>
+
+        <div class="panel">
+          <h3>Retrieve</h3>
+          <div class="query-row">
+            <input
+              id="q"
+              value="Who should I ask about whether GraphRAG beats vectors on multi-hop questions?"
+            />
+          </div>
+          <div class="modes">
+            <button id="mode-graph" class="on" type="button">Graph walk</button>
+            <button id="mode-vec" type="button">Vector-ish</button>
+            <button id="run" class="btn" type="button">Run</button>
+          </div>
+          <pre class="out" id="out">Run a question. Paths will show in orange.</pre>
+        </div>
+
+        <div class="panel tutor">
+          <h3>On-device tutor</h3>
+          <p class="tutor-status" id="tutor-status">
+            Chrome / Edge with WebGPU. First load downloads a small model and caches it.
+          </p>
+          <div class="tutor-row">
+            <input id="ask" placeholder="Ask about this lesson…" />
+            <button id="load" class="ghost" type="button">Load tutor</button>
+            <button id="send" class="btn" type="button" disabled>Ask</button>
+          </div>
+          <div class="chips" id="chips"></div>
+          <div class="answer" id="answer"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="foot">
+      Built as a learning lab, not a production GraphRAG stack. Credit the long
+      X threads that made “graph engineering” loud in 2026 — then verify claims
+      against papers and your own graph. MIT licensed.
+    </footer>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
